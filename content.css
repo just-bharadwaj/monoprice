@@ -1,0 +1,60 @@
+/* Markers live in the host page; the tooltip rules apply inside the shadow root. */
+
+/* text-decoration cannot shift layout, unlike a border or padding. */
+.mp-marker {
+  text-decoration: underline dotted rgba(120, 120, 130, 0.85);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  cursor: help;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.mp-tip {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  max-width: 320px;
+  padding: 7px 10px;
+  border: 1px solid rgba(23, 23, 23, 0.08);
+  border-radius: 8px;
+  background: #171717;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.28);
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #ffffff;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.mp-tip::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  background: #171717;
+  transform: rotate(45deg);
+}
+
+.mp-tip--below::after {
+  top: -4px;
+  bottom: auto;
+}
+
+.mp-tip__main {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.mp-tip__meta {
+  margin-top: 1px;
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.62);
+}

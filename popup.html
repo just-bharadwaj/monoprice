@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MonoPrice</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="head">
+    <div class="brand">
+      <svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="9.25" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M9 8.25h6M9 11.25h6M13.2 8.25c1.5 0 2.1 1 2.1 2 0 1.4-1 2.2-2.6 2.2H9l5 5.3"
+              fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h1 class="brand__name">MonoPrice</h1>
+    </div>
+    <label class="switch" title="Turn MonoPrice on or off everywhere">
+      <span class="switch__label">On</span>
+      <input type="checkbox" id="master" role="switch">
+      <span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span>
+    </label>
+  </header>
+
+  <section class="row">
+    <label class="row__label" for="target">Convert to</label>
+    <div class="select">
+      <select id="target"></select>
+      <svg class="select__caret" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+        <path d="M4 6.5 8 10.5l4-4" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="row">
+    <span class="row__label" id="sources-label">Detect these currencies</span>
+    <div class="grid" id="sources" role="group" aria-labelledby="sources-label"></div>
+  </section>
+
+  <section class="row row--site">
+    <div class="site">
+      <span class="row__label">Enable on this site</span>
+      <span class="site__host" id="host">—</span>
+    </div>
+    <label class="switch">
+      <input type="checkbox" id="site" role="switch">
+      <span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span>
+    </label>
+  </section>
+
+  <footer class="foot">
+    <span class="foot__status"><span class="dot" id="dot"></span><span id="status">Checking rates…</span></span>
+    <button class="refresh" id="refresh" type="button">
+      <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+        <path d="M13.5 8a5.5 5.5 0 1 1-1.6-3.9M13.5 2v3h-3" fill="none" stroke="currentColor"
+              stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Refresh
+    </button>
+  </footer>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
